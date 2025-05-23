@@ -11,7 +11,7 @@
     </header>
 
     <main
-      class="mt-30 w-full max-w-xl flex flex-col items-center justify-center gap-4"
+      class="mt-25 p-4 w-full max-w-xl flex flex-col items-center justify-center gap-4"
     >
       <h1 class="text-6xl uppercase font-bold font-stretch-condensed">
         La Croutounz
@@ -20,7 +20,7 @@
         <p class="text-xl text-center">{{ tagline }}</p>
       </ClientOnly>
 
-      <nav class="w-full flex flex-col gap-3 p-4">
+      <nav class="w-full flex flex-col gap-3">
         <NuxtLink to="/spectacles">
           <HomeBigCard>En spectacle</HomeBigCard>
         </NuxtLink>
@@ -51,6 +51,19 @@
           </NuxtLink>
         </div>
       </nav>
+
+      <ClientOnly>
+        <div v-if="nextShow" class="w-full flex flex-col items-center gap-2">
+          <h2>Prochain spectacle</h2>
+          <ShowCard
+            :date="new Date(nextShow.date)"
+            :title="nextShow.text"
+            :type="nextShow.type"
+            :location="nextShow.location"
+            :url="nextShow.url"
+          />
+        </div>
+      </ClientOnly>
     </main>
   </div>
 </template>
@@ -58,6 +71,7 @@
 <script setup lang="ts">
 const { data } = await useFetch("/api/cms-data");
 const tagline = ref("");
+const nextShow = ref(null);
 
 if (data.value?.taglines.length > 0) {
   const randomIdx = Math.floor(Math.random() * data.value.taglines.length);
@@ -65,5 +79,14 @@ if (data.value?.taglines.length > 0) {
   tagline.value = data.value.taglines[randomIdx].Tagline;
 } else {
   tagline.value = "Pas de tagline disponible";
+}
+
+if (data.value?.shows && data.value?.championship) {
+  const allShows = [...data.value.shows, ...data.value.championship];
+  nextShow.value = allShows.sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  )[0];
+} else {
+  nextShow.value = null;
 }
 </script>
