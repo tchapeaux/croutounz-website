@@ -16,7 +16,9 @@
     </header>
 
     <main class="p-4 w-full max-w-xl flex flex-col items-center justify-center">
-      <p v-if="championship.length === 0">Pas de spectacles prévus</p>
+      <p v-if="championship.length === 0">
+        Pas de spectacles prévus pour l'instant, revenez plus tard !
+      </p>
       <ul v-else class="w-full flex flex-col gap-4">
         <li v-for="(show, index) in championship" :key="index" class="w-full">
           <ShowCard
@@ -27,7 +29,11 @@
             :url="show.url"
           />
         </li>
-        <button class="w-full flex justify-center" @click="scrollToTop">
+        <button
+          v-if="isScrolled"
+          class="w-full flex justify-center"
+          @click="scrollToTop"
+        >
           <Icon class="text-3xl" name="lucide:arrow-up" />
         </button>
       </ul>
@@ -38,6 +44,8 @@
 <script setup lang="ts">
 const { data } = await useFetch("/api/cms-data");
 
+const isScrolled = ref(false);
+
 const championship = computed(() => data.value?.championship);
 
 function scrollToTop() {
@@ -46,4 +54,16 @@ function scrollToTop() {
     behavior: "smooth",
   });
 }
+
+onMounted(() => {
+  const checkScroll = () => {
+    isScrolled.value = window.scrollY > 100;
+  };
+
+  window.addEventListener("scroll", checkScroll);
+
+  onUnmounted(() => {
+    window.removeEventListener("scroll", checkScroll);
+  });
+});
 </script>
