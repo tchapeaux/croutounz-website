@@ -9,12 +9,14 @@ export default defineEventHandler(async (event) => {
     taglines: "1711650765",
     shows: "1436202587",
     championship: "163441879",
+    archive: "2091760545",
   };
 
   const results = {
     taglines: [],
     shows: [],
     championship: [],
+    archive: [],
   };
 
   // Fetch all collections in parallel

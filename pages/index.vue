@@ -27,8 +27,13 @@
         <NuxtLink to="/championnat">
           <HomeBigCard>En championnat</HomeBigCard>
         </NuxtLink>
+        <NuxtLink to="/archive">
+          <HomeBigCard>Archives</HomeBigCard>
+        </NuxtLink>
         <NuxtLink to="https://www.instagram.com/p/Cvnj7A7qm6k/" target="_blank"
-          ><HomeBigCard :funky="true">Bernard</HomeBigCard></NuxtLink
+          ><HomeBigCard :funky="true"
+            >Photo sexy de Bernard</HomeBigCard
+          ></NuxtLink
         >
         <div class="grid grid-cols-4 gap-2">
           <NuxtLink to="https://www.instagram.com/lacroutounz/" target="_blank">

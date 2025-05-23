@@ -18,7 +18,7 @@
     <div
       class="w-full p-4 py-3 bg-croutounz-light text-croutounz-darkest flex items-center justify-between text-lg uppercase font-semibold"
     >
-      Réservations
+      {{ urlCta || "Réservations" }}
       <Icon name="lucide:arrow-right" />
     </div>
   </NuxtLink>
@@ -32,6 +32,7 @@ const props = defineProps<{
   location: string;
   pmr: string;
   url?: string;
+  urlCta?: string;
 }>();
 
 const formattedDate = computed(() => {
