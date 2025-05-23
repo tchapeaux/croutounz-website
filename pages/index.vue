@@ -30,9 +30,9 @@
         <NuxtLink to="/archive">
           <HomeBigCard>Archives</HomeBigCard>
         </NuxtLink>
-        <NuxtLink to="https://www.instagram.com/p/Cvnj7A7qm6k/" target="_blank"
+        <NuxtLink to="/bernard.jpeg" target="_blank"
           ><HomeBigCard :funky="true"
-            >Photo sexy de Bernard</HomeBigCard
+            >Une photo sexy de Bernard</HomeBigCard
           ></NuxtLink
         >
         <div class="grid grid-cols-4 gap-2">
