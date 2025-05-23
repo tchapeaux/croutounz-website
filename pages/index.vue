@@ -60,6 +60,7 @@
             :title="nextShow.text"
             :type="nextShow.type"
             :location="nextShow.location"
+            :pmr="nextShow.PMR"
             :url="nextShow.url"
           />
         </div>

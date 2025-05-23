@@ -7,7 +7,10 @@
       {{ title }}
     </div>
     <div class="flex flex-col gap-1">
-      <div class="leading-none">{{ location }}</div>
+      <div class="leading-none">
+        {{ location }}
+        <Icon v-if="pmr === 'TRUE'" name="ph:wheelchair-motion" />
+      </div>
       <div class="leading-none">{{ type }}</div>
     </div>
   </div>
@@ -27,6 +30,7 @@ const props = defineProps<{
   date: Date;
   type: string;
   location: string;
+  pmr: string;
   url?: string;
 }>();
 

@@ -26,6 +26,7 @@
             :title="show.text"
             :type="show.type"
             :location="show.location"
+            :pmr="show.PMR"
             :url="show.url"
           />
         </li>
