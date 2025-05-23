@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Mona Sans";
+
+  --color-croutounz-darkest: #003118;
+  --color-croutounz-dark: #003118;
+  --color-croutounz-light: #00ad57;
+  --color-croutounz-contrast: #ffae00;
+  --color-croutounz-gradient-target: #adad00;
+}
+
+@font-face {
+  font-family: 'Mona Sans';
+  src:
+    url('/fonts/MonaSans[slnt,wdth,wght].woff2') format('woff2 supports variations'),
+    url('/fonts/MonaSans[slnt,wdth,wght].woff2') format('woff2-variations');
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
