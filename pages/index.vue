@@ -16,7 +16,9 @@
       <h1 class="text-6xl uppercase font-bold font-stretch-condensed">
         La Croutounz
       </h1>
-      <p class="text-xl">{{ tagline }}</p>
+      <ClientOnly>
+        <p class="text-xl text-center">{{ tagline }}</p>
+      </ClientOnly>
 
       <nav class="w-full flex flex-col gap-3 p-4">
         <NuxtLink to="/spectacles">
@@ -54,7 +56,14 @@
 </template>
 
 <script setup lang="ts">
-const tagline = "Improvisation garantie sans gluten";
-</script>
+const { data } = await useFetch("/api/cms-data");
+const tagline = ref("");
 
-<style scoped></style>
+if (data.value?.taglines.length > 0) {
+  const randomIdx = Math.floor(Math.random() * data.value.taglines.length);
+
+  tagline.value = data.value.taglines[randomIdx].Tagline;
+} else {
+  tagline.value = "Pas de tagline disponible";
+}
+</script>

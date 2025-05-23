@@ -24,6 +24,10 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
+  runtimeConfig: {
+    googleSheetId: process.env.GOOGLE_SHEET_ID,
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },

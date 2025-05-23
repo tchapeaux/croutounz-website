@@ -16,17 +16,34 @@
     </header>
 
     <main class="p-4 w-full max-w-xl flex flex-col items-center justify-center">
-      <ul class="w-full flex flex-col gap-4">
-        <li>
+      <p v-if="championship.length === 0">Pas de spectacles prévus</p>
+      <ul v-else class="w-full flex flex-col gap-4">
+        <li v-for="(show, index) in championship" :key="index" class="w-full">
           <ShowCard
-            :date="new Date()"
-            title="Lorem Ipsum"
-            type="Placeholder"
-            location="On the Moon"
+            :date="new Date(show.date)"
+            :title="show.text"
+            :type="show.type"
+            :location="show.location"
+            :url="show.url"
           />
         </li>
+        <button class="w-full flex justify-center" @click="scrollToTop">
+          <Icon class="text-3xl" name="lucide:arrow-up" />
+        </button>
       </ul>
-      <p>Pas de spectacles prévus</p>
     </main>
   </div>
 </template>
+
+<script setup lang="ts">
+const { data } = await useFetch("/api/cms-data");
+
+const championship = computed(() => data.value?.championship);
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+</script>
