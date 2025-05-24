@@ -1,21 +1,25 @@
 <template>
-  <div
-    class="w-full text-xl uppercase font-bold text-croutounz-dark hover:bg-croutounz-light flex items-center justify-center p-4"
-    :class="{
-      'bg-radial-[at_50%_100%]': funky,
-      'hover:ring-2': funky,
-      'ring-croutounz-contrast': funky,
-      'from-croutounz-light': funky,
-      'to-croutounz-gradient-target': funky,
-      'bg-croutounz-contrast': !funky,
-    }"
-  >
+  <div :class="cardClasses">
     <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   funky?: boolean;
 }>();
+
+const cardClasses = computed(() => ({
+  // Base classes
+  "w-full text-xl uppercase font-bold text-croutounz-dark": true,
+  "hover:bg-croutounz-light active:bg-croutounz-light": true,
+  "flex items-center justify-center p-4": true,
+  "bg-croutounz-contrast": !props.funky,
+
+  // Conditional classes for funky state
+  "bg-radial-[at_50%_100%]": props.funky,
+  "hover:ring-2 active:ring-2": props.funky,
+  "ring-croutounz-contrast": props.funky,
+  "from-croutounz-light to-croutounz-gradient-target": props.funky,
+}));
 </script>
