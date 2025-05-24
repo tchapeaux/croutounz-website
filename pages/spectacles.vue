@@ -4,7 +4,7 @@
       class="p-4 w-full h-fit bg-radial-[at_50%_100%] from-croutounz-light to-croutounz-gradient-target text-croutounz-darkest"
     >
       <NuxtLink
-        class="flex items-center text-xl font-semibold uppercase"
+        class="flex items-center text-xl font-semibold active:text-white uppercase"
         to="/"
       >
         <Icon name="lucide:arrow-left" />
