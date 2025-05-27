@@ -1,8 +1,11 @@
 <template>
   <NuxtLayout name="subpage" title="Nos souvenirs">
-    <p v-if="shows.length === 0">
-      Pas de spectacles dans les archives, revenez plus tard !
-    </p>
+    <div v-if="shows.length === 0" class="p-4">
+      <img src="/resting-crumbs.svg" class="w-full max-w-xs" />
+      <p class="px-4 mt-4 text-center font-semibold">
+        Pas de spectacles dans les archives, revenez plus tard !
+      </p>
+    </div>
     <ul v-else class="w-full flex flex-col gap-4 items-center">
       <li v-for="(show, index) in shows" :key="index" class="w-full">
         <ShowCard

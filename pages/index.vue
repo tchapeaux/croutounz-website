@@ -59,7 +59,7 @@
 
       <ClientOnly>
         <div v-if="nextShow" class="w-full flex flex-col items-center gap-2">
-          <h2>Prochain spectacle</h2>
+          <h2 class="text-lg font-semibold">Prochain spectacle</h2>
           <ShowCard
             :date="new Date(nextShow.date)"
             :title="nextShow.text"
