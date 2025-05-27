@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="subpage" title="En championnat">
     <p v-if="championship.length === 0">
-      Pas de spectacles prévus pour l'instant, revenez plus tard !
+      Plus de spectacles prévus pour le moment, à la saison prochaine !
     </p>
     <ul v-else class="w-full flex flex-col gap-4">
       <li v-for="(show, index) in championship" :key="index" class="w-full">

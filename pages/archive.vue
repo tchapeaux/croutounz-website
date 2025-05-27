@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="subpage" title="Nos souvenirs">
     <p v-if="shows.length === 0">
-      Pas de spectacles prévus pour l'instant, revenez plus tard !
+      Pas de spectacles dans les archives, revenez plus tard !
     </p>
     <ul v-else class="w-full flex flex-col gap-4 items-center">
       <li v-for="(show, index) in shows" :key="index" class="w-full">

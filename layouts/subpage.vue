@@ -57,18 +57,19 @@ onMounted(() => {
 
 <style scoped>
 header {
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, scale 0.3s ease-in-out;
   @starting-style {
     opacity: 0;
+    scale: 1.06;
   }
 }
 
 main {
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, scale 0.3s ease-in-out;
   transition-delay: 0.3s;
-
   @starting-style {
     opacity: 0;
+    scale: 1.06;
   }
 }
 </style>
