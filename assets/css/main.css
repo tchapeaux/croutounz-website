@@ -8,6 +8,8 @@
   --color-croutounz-light: #00ad57;
   --color-croutounz-contrast: #ffae00;
   --color-croutounz-gradient-target: #adad00;
+
+  --breakpoint-xs: 30rem;
 }
 
 @font-face {

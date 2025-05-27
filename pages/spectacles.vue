@@ -1,9 +1,9 @@
 <template>
   <NuxtLayout name="subpage" title="En spectacle">
-    <div v-if="shows.length === 0" class="p-4">
+    <div v-if="shows.length === 0" class="p-4 flex flex-col items-center">
       <img src="/resting-crumbs.svg" class="w-full max-w-xs" />
       <p class="px-4 mt-4 text-center font-semibold">
-        Plus de spectacles prévus pour le moment, à la saison prochaine !
+        Plus de spectacles prévus pour le moment, à la saison prochaine&nbsp;!
       </p>
     </div>
     <ul v-else class="w-full flex flex-col gap-4 items-center">
@@ -24,6 +24,5 @@
 <script setup lang="ts">
 const { data } = await useFetch("/api/cms-data");
 
-// const shows = computed(() => data.value?.shows);
-const shows = computed(() => []);
+const shows = computed(() => data.value?.shows);
 </script>

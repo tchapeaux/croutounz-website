@@ -11,7 +11,8 @@ const props = defineProps<{
 
 const cardClasses = computed(() => ({
   // Base classes
-  "w-full text-xl uppercase font-bold text-croutounz-dark": true,
+  "w-full text-lg xs:text-xl uppercase font-bold text-croutounz-dark text-center":
+    true,
   "hover:bg-croutounz-light active:bg-croutounz-light": true,
   "flex items-center justify-center p-4": true,
   "bg-croutounz-contrast": !props.funky,

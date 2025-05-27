@@ -13,11 +13,13 @@
     <main
       class="mt-25 p-4 w-full max-w-xl flex flex-col items-center justify-center gap-4"
     >
-      <h1 class="text-6xl uppercase font-bold font-stretch-condensed">
+      <h1
+        class="text-5xl xs:text-6xl uppercase font-bold font-stretch-condensed"
+      >
         La Croutounz
       </h1>
       <ClientOnly>
-        <p class="text-xl text-center">{{ tagline }}</p>
+        <p class="text-lg xs:text-xl text-center">{{ tagline }}</p>
       </ClientOnly>
 
       <nav class="w-full flex flex-col gap-3">
@@ -58,8 +60,11 @@
       </nav>
 
       <ClientOnly>
-        <div v-if="nextShow" class="w-full flex flex-col items-center gap-2">
-          <h2 class="text-lg font-semibold">Prochain spectacle</h2>
+        <div
+          v-if="nextShow"
+          class="pt-4 w-full flex flex-col items-center gap-4"
+        >
+          <h2 class="text-lg xs:text-xl font-semibold">Prochain spectacle</h2>
           <ShowCard
             :date="new Date(nextShow.date)"
             :title="nextShow.text"

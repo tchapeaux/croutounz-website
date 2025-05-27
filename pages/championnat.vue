@@ -1,9 +1,12 @@
 <template>
   <NuxtLayout name="subpage" title="En championnat">
-    <div v-if="championship.length === 0" class="p-4">
+    <div
+      v-if="championship.length === 0"
+      class="p-4 flex flex-col items-center"
+    >
       <img src="/resting-crumbs.svg" class="w-full max-w-xs" />
       <p class="px-4 mt-4 text-center font-semibold">
-        Plus de spectacles prévus pour le moment, à la saison prochaine !
+        Plus de spectacles prévus pour le moment, à la saison prochaine&nbsp;!
       </p>
     </div>
     <ul v-else class="w-full flex flex-col gap-4">
