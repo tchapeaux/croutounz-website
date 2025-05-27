@@ -69,3 +69,21 @@ onMounted(() => {
   });
 });
 </script>
+
+<style scoped>
+header {
+  transition: opacity 0.3s ease-in-out;
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+main {
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.3s;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+</style>

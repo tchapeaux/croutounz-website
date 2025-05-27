@@ -6,7 +6,7 @@
       <img
         src="/croutounz-avatar.png"
         alt="Logo de la Croutounz"
-        class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 h-45 w-45 rounded-full border-croutounz-light border-6"
+        class="hero-logo absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 h-45 w-45 rounded-full border-croutounz-light border-6"
       />
     </header>
 
@@ -96,3 +96,21 @@ if (data.value?.shows && data.value?.championship) {
   nextShow.value = null;
 }
 </script>
+
+<style scoped>
+.hero-logo {
+  transition: opacity 0.3s ease-in-out;
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+main {
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.3s;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+</style>
