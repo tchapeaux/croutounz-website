@@ -30,7 +30,7 @@
           <HomeBigCard>En championnat</HomeBigCard>
         </NuxtLink>
         <NuxtLink to="/archive">
-          <HomeBigCard>Archives</HomeBigCard>
+          <HomeBigCard>Archives photos</HomeBigCard>
         </NuxtLink>
         <NuxtLink to="/bernard.jpeg" target="_blank"
           ><HomeBigCard :funky="true"
@@ -94,9 +94,15 @@ if (data.value?.taglines.length > 0) {
 
 if (data.value?.shows && data.value?.championship) {
   const allShows = [...data.value.shows, ...data.value.championship];
-  nextShow.value = allShows.sort(
-    (a, b) => new Date(a.date) - new Date(b.date)
-  )[0];
+  const today = new Date();
+  // Shows are encoded at 0 hour 0 minute for their day
+  today.setHours(0, 0, 0, 0);
+
+  const futureShows = allShows
+    .filter((s) => new Date(s.date) >= today)
+    .sort((a, b) => (new Date(a.date) < new Date(b.date) ? -1 : 1));
+
+  nextShow.value = futureShows.at(0) ?? null;
 } else {
   nextShow.value = null;
 }
