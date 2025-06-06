@@ -8,7 +8,7 @@
         to="/"
       >
         <Icon name="lucide:arrow-left" />
-        Retour
+        La Croutounz
       </NuxtLink>
       <h2 class="pt-2 text-5xl uppercase font-black font-stretch-condensed">
         {{ title }}
