@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout name="subpage" title="Nos souvenirs">
+  <NuxtLayout name="subpage" title="En souvenirs">
     <div v-if="shows.length === 0" class="p-4 flex flex-col items-center">
       <img src="/resting-crumbs.svg" class="w-full max-w-xs" />
       <p class="px-4 mt-4 text-center font-semibold">
