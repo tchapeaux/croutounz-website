@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Analytics />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -7,6 +8,8 @@
 </template>
 
 <script setup lang="ts">
+import { Analytics } from "@vercel/analytics/nuxt";
+
 useSeoMeta({
   title: "La Croutounz",
   ogTitle: "La Croutounz",
