@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script stup lang="ts">
+<script setup lang="ts">
 useSeoMeta({
   title: "La Croutounz",
   ogTitle: "La Croutounz",
